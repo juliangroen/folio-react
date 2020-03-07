@@ -11,8 +11,10 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:css": "postcss src/styles.css -o src/App.css",
+    "watch:css": "postcss src/styles.css -o src/App.css --watch",
+    "start": "npm run build:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -30,5 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "postcss-cli": "^7.1.0",
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.2.0"
   }
 }
