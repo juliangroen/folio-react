@@ -10,14 +10,11 @@ const Menu = ({ showMenu }) => {
 
   const setActive = text => {
     const newState = [...items];
-    console.log(newState);
     newState.forEach(obj => {
-      console.log(text);
       if (obj.text === text || obj.isActive === true) {
         obj.isActive = !obj.isActive;
       }
     });
-    console.log(newState);
     setItems(newState);
   };
 
