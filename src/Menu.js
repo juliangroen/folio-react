@@ -9,13 +9,14 @@ const Menu = ({ showMenu }) => {
   ]);
 
   const setActive = text => {
-    const newState = [...items];
-    newState.forEach(obj => {
-      if (obj.text === text || obj.isActive === true) {
+    const newState = items.map(obj => { 
+      obj.isActive = false;
+      if (obj.text === text) {
         obj.isActive = !obj.isActive;
       }
+      return obj;
     });
-    setItems(newState);
+    return newState;
   };
 
   return (
@@ -30,7 +31,7 @@ const Menu = ({ showMenu }) => {
               <MenuItem
                 itemName={item.text}
                 isActive={item.isActive}
-                clickFunction={setActive}
+                clickEvent={(childText) => setItems(setActive(childText))}
               />
             );
           })}
